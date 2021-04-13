@@ -13,19 +13,31 @@ class Timer extends Component {
   // add = (i) => { // F. 99, ohne Updater-Funktion (Aufgabe 5)
   //   this.setState({ count: this.state.count + i});
   // }
+  
+
+  getDateAsString() { 
+      let d = new Date(); 
+      let str = d.getHours() + ":" + d.getMinutes() + ":"
+                                  + d.getSeconds(); 
+      return str;     
+  }
 
   render() { // F. 99
-    
+    this.state = {             
+      run: true,             
+      calls: 10000        
+    }
+
     return (
       <div>
         <div className="timer">
-          Zeile1
+          {this.getDateAsString()}
         </div>
         <div className="timer">
-          Zeile2
+          {this.state.calls}
         </div> 
         <div className="timer">
-          Zeile3
+          {this.state.run ? 'ON' : 'OFF'}
         </div> 
       </div> 
     );
