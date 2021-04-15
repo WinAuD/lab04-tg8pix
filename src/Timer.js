@@ -1,7 +1,7 @@
 import React, { Component } from"react";
 //import AddButton from './AddButton.js';
 import './Timer.css';
- 
+
 class Timer extends Component {
   
   // state = { count: 0 }; // Key-Value-Paar
@@ -13,7 +13,17 @@ class Timer extends Component {
   // add = (i) => { // F. 99, ohne Updater-Funktion (Aufgabe 5)
   //   this.setState({ count: this.state.count + i});
   // }
-  
+
+  state = {             
+      run: this.props.doRun,             
+      calls: this.props.initCalls        
+    }
+
+  componentDidMount() {
+    //alert("phase: componentDidMount");
+    setInterval( function(){this.setState(
+            {calls: this.state.calls - 1 })}.bind(this) , 100);
+   }
 
   getDateAsString() { 
       let d = new Date(); 
@@ -23,11 +33,7 @@ class Timer extends Component {
   }
 
   render() { // F. 99
-    this.state = {             
-      run: true,             
-      calls: 10000        
-    }
-
+    
     return (
       <div>
         <div className="timer">

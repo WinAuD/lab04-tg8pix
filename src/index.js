@@ -3,4 +3,4 @@ import ReactDOM from "react-dom";
 
 import Timer from "./Timer";
 
-ReactDOM.render(<Timer />, document.getElementById("root"));
+ReactDOM.render(<Timer initCalls="10000" doRun={true}/>, document.getElementById("root"));
