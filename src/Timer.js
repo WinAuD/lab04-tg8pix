@@ -18,14 +18,29 @@ class Timer extends Component {
   }
 
   update = (state) => {
-    this.setState 
+    if (this.state.run)
+      return {calls: state.calls -1}
+    else
+      return {} 
   }
 
   componentDidMount() {
     //alert("phase: componentDidMount");
-    setInterval( function(){this.setState(
-            {calls: this.state.calls - 1 })}.bind(this) , 100);
+    // setInterval( function(){this.setState(
+    //         {calls: this.state.calls - 1 })}.bind(this) , 100);
+    setInterval(() => this.setState(this.update), 100);
    }
+
+  static getDerivedStateFromProps(props, state) {
+    //alert("phase: getDerivedStateFromProps");
+    if (state.run != props.doRun) {
+      return {
+        run: props.doRun,
+      }
+    } else
+    // Return null if the state hasn't changed
+    return null;
+  }
 
   getDateAsString() { 
       let d = new Date(); 
