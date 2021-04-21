@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Timer from "./Timer";
+//import Timer from "./Timer.js";
+import App from "./App.js";
 
-ReactDOM.render(<Timer initCalls="10000" doRun={true}/>, document.getElementById("root"));
+ReactDOM.render(<App/>, document.getElementById("root"));

@@ -1,10 +1,21 @@
 import React, { Component } from"react";
-//import './App.css';
+import './App.css';
+import Timer from "./Timer.js";
 
-class App extends Component { 
+class App extends Component {
+
+  state = {run: true} 
+
+  click = () => {
+    this.setState({run: !this.state.run})
+  }
+
   render() { 
     return (
-      <h1>Hello, my world!</h1> 
+      <div>
+        <Timer initCalls="10000" doRun={this.state.run}/>
+        <button className="NiceButton" onClick={this.click}>{String(this.state.run)}</button>
+      </div>
     ); 
   }
 }

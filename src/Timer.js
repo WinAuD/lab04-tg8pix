@@ -4,8 +4,6 @@ import './Timer.css';
 
 class Timer extends Component {
   
-  // state = { count: 0 }; // Key-Value-Paar
-
   // add = (i) => { // F. 99, mit Updater-Funktion F.87 (Aufgabe 6)
   //   this.setState((state) => ({ count: state.count + i}));
   // }
@@ -14,10 +12,14 @@ class Timer extends Component {
   //   this.setState({ count: this.state.count + i});
   // }
 
-  state = {             
-      run: this.props.doRun,             
-      calls: this.props.initCalls        
-    }
+  state = {
+    run: this.props.doRun,
+    calls: this.props.initCalls
+  }
+
+  update = (state) => {
+    this.setState 
+  }
 
   componentDidMount() {
     //alert("phase: componentDidMount");
